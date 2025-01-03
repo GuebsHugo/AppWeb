@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="79af8dfd-043e-4874-a7f4-0f8a632536d9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/AppWeb.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/java/com/spring/henallux/firstSpringProject/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/java/com/spring/henallux/firstSpringProject/Constants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/java/com/spring/henallux/firstSpringProject/Controller/GiftController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/java/com/spring/henallux/firstSpringProject/Controller/InscriptionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/java/com/spring/henallux/firstSpringProject/Controller/WelcomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/java/com/spring/henallux/firstSpringProject/FirstSpringProjectApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/java/com/spring/henallux/firstSpringProject/ServletInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/java/com/spring/henallux/firstSpringProject/StringToHobbyConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/java/com/spring/henallux/firstSpringProject/configuration/MainConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/java/com/spring/henallux/firstSpringProject/configuration/TilesConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/java/com/spring/henallux/firstSpringProject/dataAccess/dao/MagicKeyDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/java/com/spring/henallux/firstSpringProject/dataAccess/dao/MagicKeyDataAccess.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/java/com/spring/henallux/firstSpringProject/dataAccess/dao/UserDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/java/com/spring/henallux/firstSpringProject/dataAccess/dao/UserDataAccess.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/java/com/spring/henallux/firstSpringProject/dataAccess/entity/MagicKeyEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/java/com/spring/henallux/firstSpringProject/dataAccess/entity/UserEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/java/com/spring/henallux/firstSpringProject/dataAccess/repository/MagicKeyRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/java/com/spring/henallux/firstSpringProject/dataAccess/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/java/com/spring/henallux/firstSpringProject/dataAccess/util/ProviderConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/java/com/spring/henallux/firstSpringProject/model/Hobby.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/java/com/spring/henallux/firstSpringProject/model/MagicKeyForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/java/com/spring/henallux/firstSpringProject/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/java/com/spring/henallux/firstSpringProject/service/GiftService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/java/com/spring/henallux/firstSpringProject/service/HobbiesService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/resources/translations/errors_en.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/resources/translations/errors_fr.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/resources/translations/general_en.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/resources/translations/general_fr.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/webapp/WEB-INF/jsp/gift.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/webapp/WEB-INF/jsp/include/importTags.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/webapp/WEB-INF/jsp/keyError.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/webapp/WEB-INF/jsp/template/template.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/webapp/WEB-INF/jsp/userInscription.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/webapp/WEB-INF/jsp/welcome.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/webapp/WEB-INF/resources/tiles.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/webapp/css/first.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/webapp/images/en.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/webapp/images/fr.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/main/webapp/images/images.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ig308-public-main/src/test/java/com/spring/henallux/firstSpringProject/FirstSpringProjectApplicationTests.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2r7JxdLemADHyjAux7vtR8iheGm" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/hugog/Desktop/Henallux/B3/Developpement avance d'application/AppWeb/ig308-public-main",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="79af8dfd-043e-4874-a7f4-0f8a632536d9" name="Changes" comment="" />
+      <created>1735904430667</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1735904430667</updated>
+      <workItem from="1735904431861" duration="64000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
