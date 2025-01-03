@@ -1,0 +1,62 @@
+Description des tables WebApp
+
+Table User :
+
+	Cette table stocke les informations des utilisateurs de l'application.
+
+		id : Identifiant unique de l'utilisateur. Généré automatiquement.
+		last_name : Nom de famille de l'utilisateur. Obligatoire.
+		first_name : Prénom de l'utilisateur. Obligatoire.
+		email : Adresse email unique de l'utilisateur. Obligatoire.
+		phone : Numéro de téléphone de l'utilisateur. Optionnel.
+		address : Adresse postale de l'utilisateur. Optionnel.
+		password : Mot de passe haché de l'utilisateur. Obligatoire.
+
+Table Product : 
+
+	Cette table contient les informations sur les produits disponibles à la vente.
+
+		id : Identifiant unique du produit. Généré automatiquement.
+		label : Nom ou étiquette du produit. Obligatoire.
+		description	: Description du produit. Optionnel.
+		price : Prix du produit, au format décimal avec deux chiffres après la virgule. Obligatoire.
+		stock : Quantité de produit disponible en stock. Obligatoire.
+		category_id : Identifiant de la catégorie associée au produit (clé étrangère vers la table Category).
+	
+
+Table Category :
+
+	Cette table définit les catégories auxquelles les produits peuvent être associés.
+
+		id : Identifiant unique de la catégorie. Généré automatiquement.
+		name : Nom de la catégorie. Obligatoire.
+		description : Description de la catégorie. Optionnel.
+
+
+Table CustomerOrder : 
+
+	Cette table stocke les commandes effectuées par les utilisateurs.
+
+		id : Identifiant unique de la commande. Généré automatiquement.
+		user_id	: Identifiant de l'utilisateur ayant passé la commande (clé étrangère vers la table User).
+		date : Date et heure de création de la commande. Par défaut, la date et l'heure actuelles.
+		total : Montant total de la commande, au format décimal avec deux chiffres après la virgule. Obligatoire.
+		status : Statut de la commande, pouvant être "PENDING" (en attente) ou "PAID" (payée). Valeur par défaut : "PENDING".
+
+Table OrderLine :
+
+	Cette table détaille les lignes d'une commande, chaque ligne correspondant à un produit acheté.
+
+		id : Identifiant unique de la ligne de commande. Généré automatiquement.
+		order_id : Identifiant de la commande associée (clé étrangère vers la table CustomerOrder).
+		product_id : Identifiant du produit acheté (clé étrangère vers la table Product).
+		quantity : Quantité de produit commandée. Obligatoire.
+		unit_price : Prix unitaire du produit au moment de la commande, au format décimal avec deux chiffres après la virgule. Obligatoire.
+
+Résumé des relations :
+
+	Product → Category : Un produit appartient à une catégorie (category_id).
+	CustomerOrder → User : Une commande est associée à un utilisateur (user_id).
+	OrderLine → CustomerOrder : Une ligne de commande est associée à une commande (order_id).
+	OrderLine → Product : Une ligne de commande est associée à un produit (product_id).
+
