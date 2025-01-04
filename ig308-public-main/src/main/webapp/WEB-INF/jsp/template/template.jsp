@@ -3,48 +3,14 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 
 <html>
-    <style>
-        .flags-container {
-            position: absolute;
-            top: 10px; /* Positionné en haut */
-            right: 10px; /* Positionné à gauche */
-        }
-
-        .flag {
-            width: 30px; /* Taille des drapeaux */
-            height: 30px; /* Hauteur des drapeaux */
-            margin-right: 10px; /* Espacement entre les drapeaux */
-        }
-
-        .navbar {
-            background-color: #333;
-            overflow: hidden;
-        }
-
-        .navbar a {
-            color: white;
-            padding: 14px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .navbar a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-
-        .navbar .right {
-            float: right;
-        }
-    </style>
-
     <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <link type="text/css" href="<spring:url value='/css/first.css'/>" rel="Stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
         <title>${title}</title>
-        <img src="<spring:url value='/images/images.jpg'/>" />
+
 
         <spring:url var="localeFr" value="">
             <spring:param name="locale" value="fr" />
@@ -66,30 +32,66 @@
 
     <body>
         <!-- Menu de navigation -->
-        <div class="navbar">
-            <a href="<spring:url value='/home'/>">Accueil</a>
-            <a href="<spring:url value='/catalogue'/>">Catalogue</a>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="<spring:url value='/home'/>">Accueil</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <!-- Liens de navigation -->
+        <li class="nav-item">
+          <a class="nav-link" href="<spring:url value='/catalogue'/>">Catalogue</a>
+        </li>
 
-            <c:choose>
-                <c:when test="${empty sessionScope.user}">
-                    <!-- Si l'utilisateur n'est pas connecté -->
-                    <a href="<spring:url value='/login'/>">Se connecter</a>
-                    <a href="<spring:url value='/register'/>">S'inscrire</a>
-                </c:when>
-                <c:otherwise>
-                    <!-- Si l'utilisateur est connecté -->
-                    <span style="color: white;">Bienvenue, ${sessionScope.user.username} !</span>
-                    <a href="<spring:url value='/logout'/>">Se déconnecter</a>
-                    <a href="<spring:url value='/profile'/>">Mon compte</a>
-                    <a href="<spring:url value='/cart'/>">Panier</a>
-                </c:otherwise>
-            </c:choose>
-        </div>
+        <!-- Partie connexion / déconnexion -->
+        <c:choose>
+          <c:when test="${empty sessionScope.user}">
+            <li class="nav-item">
+              <a class="nav-link" href="<spring:url value='/login'/>">Se connecter</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<spring:url value='/register'/>">S'inscrire</a>
+            </li>
+          </c:when>
+          <c:otherwise>
+            <li class="nav-item">
+              <span class="navbar-text">Bienvenue, ${sessionScope.user.username} !</span>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<spring:url value='/logout'/>">Se déconnecter</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<spring:url value='/profile'/>">Mon compte</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<spring:url value='/cart'/>">Panier</a>
+            </li>
+          </c:otherwise>
+        </c:choose>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+        <img src="<spring:url value='/images/images.jpg'/>" />
 
         <!-- Contenu principal -->
         <div>
             <tiles:insertAttribute name="main-content" />
         </div>
+        <script
+                src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+        </script>
 
     </body>
 </html>
