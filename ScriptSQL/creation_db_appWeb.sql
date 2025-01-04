@@ -2,6 +2,9 @@ CREATE DATABASE appWeb;
 
 USE appWeb;
 
+set @@global.time_zone = '+00:00' ;
+set @@session.time_zone = '+00:00' ;
+
 CREATE TABLE User (
     id INT AUTO_INCREMENT PRIMARY KEY,
     last_name VARCHAR(50) NOT NULL,
