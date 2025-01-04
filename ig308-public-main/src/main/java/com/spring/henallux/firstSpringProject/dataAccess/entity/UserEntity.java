@@ -35,6 +35,15 @@ public class UserEntity {
 
     public UserEntity() {}
 
+    public UserEntity(String lastName, String firstName, String email, String phone, String address, String password) {
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+        this.password = password;
+    }
+
     // Getters and Setters
     public Integer getId() {
         return id;

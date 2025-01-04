@@ -33,9 +33,8 @@
         <button type="submit" class="btn btn-primary btn-block">Se connecter</button>
       </form>
 
-      <!-- Lien vers la création d'un compte -->
       <p class="text-center mt-3">
-        Pas encore inscrit ? <a href="/register">Créer un compte</a>
+        Pas encore inscrit ? <a href="/firstSpring/register">Créer un compte</a>
       </p>
     </div>
   </div>

@@ -29,7 +29,7 @@
         <!-- Menu de navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="<spring:url value='/home'/>">Accueil</a>
+    <a class="navbar-brand" href="<spring:url value='/hello/welcome'/>">Accueil</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -61,13 +61,10 @@
               </c:when>
               <c:otherwise>
                   <li class="nav-item">
-                      <span class="navbar-text">Bienvenue, ${sessionScope.user.username} !</span>
-                  </li>
-                  <li class="nav-item">
                       <a class="nav-link" href="<spring:url value='/logout'/>">Se déconnecter</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="<spring:url value='/profile'/>">Mon compte</a>
+                      <a class="nav-link" href="<spring:url value='/profile'/>">${sessionScope.user.username}</a>
                   </li>
                   <li class="nav-item">
                       <a class="nav-link" href="<spring:url value='/cart'/>">Panier</a>
@@ -75,16 +72,20 @@
               </c:otherwise>
           </c:choose>
 
+          <li class="nav-item">
+              <a class="nav-link" href="<spring:url value='/about'/>">About us</a>
+          </li>
+
           <!-- Drapeaux pour changer de langue -->
         <li class="nav-item">
           <a class="nav-link" href="?locale=fr">
-            <img src="${pageContext.request.contextPath}/images/fr.jpg"
+            <img src="${pageContext.request.contextPath}/images/fr.png"
                  alt="Français" class="flag"/>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="?locale=en">
-            <img src="${pageContext.request.contextPath}/images/en.jpg"
+            <img src="${pageContext.request.contextPath}/images/en.png"
                  alt="English" class="flag"/>
           </a>
         </li>
