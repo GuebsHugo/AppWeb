@@ -111,4 +111,8 @@ public class User {
                 ", password='" + password + '\'' +
                 '}';
     }
+
+    public String getUsername() {
+        return firstName;
+    }
 }

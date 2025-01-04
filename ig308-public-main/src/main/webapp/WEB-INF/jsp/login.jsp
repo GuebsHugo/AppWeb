@@ -15,7 +15,6 @@
     <div class="col-md-6">
       <h2 class="text-center">Connexion</h2>
 
-      <!-- Message d'erreur (si échec de la connexion) -->
       <c:if test="${not empty error}">
         <div class="alert alert-danger" role="alert">
             ${error}

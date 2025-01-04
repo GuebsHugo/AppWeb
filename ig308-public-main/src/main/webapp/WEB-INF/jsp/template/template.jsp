@@ -50,31 +50,32 @@
         </li>
 
         <!-- Partie connexion / déconnexion -->
-        <c:choose>
-          <c:when test="${empty sessionScope.user}">
-            <li class="nav-item">
-              <a class="nav-link" href="<spring:url value='/login'/>">Se connecter</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="<spring:url value='/register'/>">S'inscrire</a>
-            </li>
-          </c:when>
-          <c:otherwise>
-            <li class="nav-item">
-              <span class="navbar-text">Bienvenue, ${sessionScope.user.username} !</span>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="<spring:url value='/logout'/>">Se déconnecter</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="<spring:url value='/profile'/>">Mon compte</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="<spring:url value='/cart'/>">Panier</a>
-            </li>
-          </c:otherwise>
-        </c:choose>
-        <!-- Drapeaux pour changer de langue -->
+          <c:choose>
+              <c:when test="${empty sessionScope.user}">
+                  <li class="nav-item">
+                      <a class="nav-link" href="<spring:url value='/login'/>">Se connecter</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="<spring:url value='/register'/>">S'inscrire</a>
+                  </li>
+              </c:when>
+              <c:otherwise>
+                  <li class="nav-item">
+                      <span class="navbar-text">Bienvenue, ${sessionScope.user.username} !</span>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="<spring:url value='/logout'/>">Se déconnecter</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="<spring:url value='/profile'/>">Mon compte</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="<spring:url value='/cart'/>">Panier</a>
+                  </li>
+              </c:otherwise>
+          </c:choose>
+
+          <!-- Drapeaux pour changer de langue -->
         <li class="nav-item">
           <a class="nav-link" href="?locale=fr">
             <img src="${pageContext.request.contextPath}/images/fr.jpg"
