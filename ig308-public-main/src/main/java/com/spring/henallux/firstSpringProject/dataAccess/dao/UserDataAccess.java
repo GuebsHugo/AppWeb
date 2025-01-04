@@ -1,4 +1,9 @@
 package com.spring.henallux.firstSpringProject.dataAccess.dao;
 
-public interface UserDataAccess {
+import com.spring.henallux.firstSpringProject.model.User;
+
+import java.util.ArrayList;
+
+public interface UserDataAccess{
+    ArrayList<User> getAllUsers();
 }

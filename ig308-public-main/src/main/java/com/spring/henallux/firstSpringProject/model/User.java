@@ -6,6 +6,8 @@ import javax.validation.constraints.Size;
 
 public class User {
 
+    private Integer id;  // Ajout de l'ID
+
     @NotNull(message = "Last name cannot be null")
     @Size(min = 2, max = 50, message = "Last name must be between 2 and 50 characters")
     private String lastName;
@@ -27,17 +29,26 @@ public class User {
     @Size(min = 8, max = 255, message = "Password must be between 8 and 255 characters")
     private String password;
 
-    // Constructors, getters, and setters
+    // Constructeurs, getters, et setters
 
     public User() {}
 
-    public User(String lastName, String firstName, String email, String phone, String address, String password) {
+    public User(Integer id, String lastName, String firstName, String email, String phone, String address, String password) {
+        this.id = id;
         this.lastName = lastName;
         this.firstName = firstName;
         this.email = email;
         this.phone = phone;
         this.address = address;
         this.password = password;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getLastName() {
@@ -86,5 +97,18 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }
