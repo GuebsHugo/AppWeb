@@ -1,3 +1,6 @@
+<%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
+<%@ include file="include/importTags.jsp"%>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -7,20 +10,37 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<div class="container">
-  <h2>Se connecter</h2>
-  <form action="/login" method="POST">
-    <div class="form-group">
-      <label for="username">Identifiant</label>
-      <input type="text" class="form-control" id="username" name="username" required>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h2 class="text-center">Connexion</h2>
+
+      <!-- Message d'erreur (si échec de la connexion) -->
+      <c:if test="${not empty error}">
+        <div class="alert alert-danger" role="alert">
+            ${error}
+        </div>
+      </c:if>
+
+      <!-- Formulaire de connexion -->
+      <form action="/login" method="POST">
+        <div class="form-group">
+          <label for="username">Identifiant</label>
+          <input type="text" class="form-control" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Mot de passe</label>
+          <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Se connecter</button>
+      </form>
+
+      <!-- Lien vers la création d'un compte -->
+      <p class="text-center mt-3">
+        Pas encore inscrit ? <a href="/register">Créer un compte</a>
+      </p>
     </div>
-    <div class="form-group">
-      <label for="password">Mot de passe</label>
-      <input type="password" class="form-control" id="password" name="password" required>
-    </div>
-    <button type="submit" class="btn btn-primary">Se connecter</button>
-  </form>
-  <a href="/register">Créer un compte</a>
+  </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

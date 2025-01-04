@@ -1,3 +1,6 @@
+<%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
+<%@ include file="include/importTags.jsp"%>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -17,9 +20,9 @@
 </nav>
 
 <div class="container">
-  <h1>Bienvenue sur notre site de vente en ligne !</h1>
+  <h1>VenteVap</h1>
   <p>Découvrez nos produits et promotions !</p>
-</div>
+  </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
