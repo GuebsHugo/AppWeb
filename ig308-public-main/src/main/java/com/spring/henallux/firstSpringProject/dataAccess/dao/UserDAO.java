@@ -42,4 +42,21 @@ public class UserDAO implements UserDataAccess{
         return users;
     }
 
+    @Override
+    public User getUserByEmail(String email) {
+        UserEntity userEntity = userRepository.findByEmail(email);
+        if (userEntity != null) {
+            return new User(
+                    userEntity.getId(),
+                    userEntity.getFirstName(),
+                    userEntity.getLastName(),
+                    userEntity.getEmail(),
+                    userEntity.getPhone(),
+                    userEntity.getAddress(),
+                    userEntity.getPassword()
+            );
+        }
+        return null;
+    }
+
 }

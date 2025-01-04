@@ -22,11 +22,10 @@
         </div>
       </c:if>
 
-      <!-- Formulaire de connexion -->
-      <form action="/login" method="POST">
+      <form action="/firstSpring/login" method="POST"> <!-- Action modifiée ici -->
         <div class="form-group">
-          <label for="username">Identifiant</label>
-          <input type="text" class="form-control" id="username" name="username" required>
+          <label for="email">Identifiant (Email)</label>
+          <input type="email" class="form-control" id="email" name="email" required>
         </div>
         <div class="form-group">
           <label for="password">Mot de passe</label>
