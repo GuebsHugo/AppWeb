@@ -15,7 +15,7 @@ public class CustomerOrderEntity {
 
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User2Entity user;
+    private UserEntity user;
 
     @Column(name = "date", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Timestamp date;
@@ -46,11 +46,11 @@ public class CustomerOrderEntity {
         this.id = id;
     }
 
-    public User2Entity getUser() {
+    public UserEntity getUser() {
         return user;
     }
 
-    public void setUser(User2Entity user) {
+    public void setUser(UserEntity user) {
         this.user = user;
     }
 

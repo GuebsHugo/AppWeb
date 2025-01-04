@@ -1,68 +1,90 @@
 package com.spring.henallux.firstSpringProject.model;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-
 public class User {
 
-    @NotNull(message = "Name cannot be null")
-    @Size(min = 2, max = 30, message = "Name must be between 2 and 30 characters")
-    private String name;
+    @NotNull(message = "Last name cannot be null")
+    @Size(min = 2, max = 50, message = "Last name must be between 2 and 50 characters")
+    private String lastName;
 
-    @NotNull()
-    @Min(value = 1)
-    @Max(value = 120)
-    private Integer age;
+    @NotNull(message = "First name cannot be null")
+    @Size(min = 2, max = 50, message = "First name must be between 2 and 50 characters")
+    private String firstName;
 
+    @NotNull(message = "Email is required")
+    @Email(message = "Email should be valid")
+    private String email;
 
-    @NotNull(message = "Gender is required")
-    private Boolean male;
+    @Size(max = 15, message = "Phone number cannot be longer than 15 characters")
+    private String phone;
 
-    @NotNull(message = "Hobby is required")
-    private Hobby hobby;
+    private String address;
+
+    @NotNull(message = "Password is required")
+    @Size(min = 8, max = 255, message = "Password must be between 8 and 255 characters")
+    private String password;
+
+    // Constructors, getters, and setters
 
     public User() {}
 
-    public User(String name, Integer age, Boolean male, Hobby hobby) {
-        this.name = name;
-        this.age = age;
-        this.male = male;
-        this.hobby = hobby;
+    public User(String lastName, String firstName, String email, String phone, String address, String password) {
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+        this.password = password;
     }
 
-    // Getters et Setters
-    public String getName() {
-        return name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public Integer getAge() {
-        return age;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public Boolean getMale() {
-        return male;
+    public String getEmail() {
+        return email;
     }
 
-    public void setMale(Boolean male) {
-        this.male = male;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public Hobby getHobby() {
-        return hobby;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setHobby(Hobby hobby) {
-        this.hobby = hobby;
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

@@ -1,67 +1,102 @@
 package com.spring.henallux.firstSpringProject.dataAccess.entity;
 
-import com.spring.henallux.firstSpringProject.model.Hobby;
-
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
-@Table(name = "user") // Table name in the database
+@Table(name = "User")
 public class UserEntity {
+
     @Id
-    @Column(name = "name")
-    private String name;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Integer id;
 
-    @Column(name = "age")
-    private int age;
+    @Column(name = "last_name", nullable = false)
+    private String lastName;
 
-    @Column(name = "male")
-    private boolean male;
+    @Column(name = "first_name", nullable = false)
+    private String firstName;
 
-    @Column(name = "hobby")
-    @Basic(optional = true)
-    private String hobby;
+    @Column(name = "email", nullable = false, unique = true)
+    private String email;
 
-    public UserEntity() {
+    @Column(name = "phone")
+    private String phone;
 
+    @Column(name = "address")
+    private String address;
+
+    @Column(name = "password", nullable = false)
+    private String password;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<CustomerOrderEntity> orders;
+
+    public UserEntity() {}
+
+    // Getters and Setters
+    public Integer getId() {
+        return id;
     }
 
-    public UserEntity(String name, int age, boolean male, String hobby) {
-        setName(name);
-        setAge(age);
-        setMale(male);
-        setHobby(hobby);
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public int getAge() {
-        return age;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public boolean isMale() {
-        return male;
+    public String getEmail() {
+        return email;
     }
 
-    public void setMale(boolean male) {
-        this.male = male;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getHobby() {
-        return hobby;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setHobby(String hobby) {
-       this.hobby = hobby;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Set<CustomerOrderEntity> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<CustomerOrderEntity> orders) {
+        this.orders = orders;
+    }
 }
