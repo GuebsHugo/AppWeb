@@ -11,7 +11,6 @@
 
         <title>${title}</title>
 
-
         <spring:url var="localeFr" value="">
             <spring:param name="locale" value="fr" />
         </spring:url>
@@ -20,17 +19,13 @@
             <spring:param name="locale" value="en" />
         </spring:url>
 
-        <div class="flags-container">
-            <a href="?locale=fr">
-                <img src="${pageContext.request.contextPath}/images/fr.jpg" alt="Français" class="flag"/>
-            </a>
-            <a href="?locale=en">
-                <img src="${pageContext.request.contextPath}/images/en.jpg" alt="English" class="flag"/>
-            </a>
-        </div>
+
     </head>
 
     <body>
+
+
+
         <!-- Menu de navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
@@ -46,6 +41,7 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <!-- Liens de navigation -->
@@ -78,6 +74,19 @@
             </li>
           </c:otherwise>
         </c:choose>
+        <!-- Drapeaux pour changer de langue -->
+        <li class="nav-item">
+          <a class="nav-link" href="?locale=fr">
+            <img src="${pageContext.request.contextPath}/images/fr.jpg"
+                 alt="Français" class="flag"/>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="?locale=en">
+            <img src="${pageContext.request.contextPath}/images/en.jpg"
+                 alt="English" class="flag"/>
+          </a>
+        </li>
       </ul>
     </div>
   </div>
