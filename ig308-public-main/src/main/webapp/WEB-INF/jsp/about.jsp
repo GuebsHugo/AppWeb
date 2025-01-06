@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>À propos de VenteVape</title>
+  <title><spring:message code="page.title.about" /></title>
   <!-- Bootstrap CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
@@ -94,95 +94,86 @@
   </style>
 </head>
 <body>
-<!-- Section Bannière -->
+
 <div class="hero-section">
   <div>
-    <h1>VenteVape</h1> <!-- Nouveau style pour le nom de l'entreprise -->
-    <p class="lead">Découvrez une nouvelle expérience de vape avec des produits de qualité.</p>
+    <h1><spring:message code="hero.title" /></h1>
+    <p class="lead"><spring:message code="hero.subtitle" /></p>
   </div>
 </div>
 
-<!-- Section Mission -->
+
 <div class="container mission-section">
   <div class="row">
     <div class="col-md-6">
-      <h2>Notre mission</h2>
-      <p>
-        Chez VenteVape, notre mission est de proposer les meilleures vapes, recharges et arômes pour offrir à nos clients
-        une expérience unique et satisfaisante. Nous mettons un point d'honneur à garantir des produits de qualité
-        et une large gamme de saveurs pour répondre à toutes les envies.
-      </p>
+      <h2><spring:message code="mission.title" /></h2>
+      <p><spring:message code="mission.content" /></p>
     </div>
     <div class="col-md-6">
-      <img src="<spring:url value='/images/mission-vape.jpg'/>" class="img-fluid rounded" alt="Notre mission">
+      <img src="<spring:url value='/images/mission-vape.jpg'/>" class="img-fluid rounded" alt="<spring:message code='mission.title' />">
     </div>
   </div>
 </div>
 
-<!-- Section Valeurs -->
 <div class="values-section">
   <div class="container">
-    <h2 class="text-center">Nos valeurs</h2>
+    <h2 class="text-center"><spring:message code="values.title" /></h2>
     <div class="row text-center mt-4">
       <div class="col-md-4">
         <div class="icon">🌿</div>
-        <h5>Qualité</h5>
-        <p>Nous sélectionnons soigneusement chaque produit pour garantir une expérience haut de gamme.</p>
+        <h5><spring:message code="values.quality" /></h5>
+        <p><spring:message code="values.quality.description" /></p>
       </div>
       <div class="col-md-4">
         <div class="icon">🍓</div>
-        <h5>Variété</h5>
-        <p>Explorez un large choix d'arômes et de saveurs pour personnaliser votre vape.</p>
+        <h5><spring:message code="values.variety" /></h5>
+        <p><spring:message code="values.variety.description" /></p>
       </div>
       <div class="col-md-4">
         <div class="icon">🚚</div>
-        <h5>Service</h5>
-        <p>Un service client réactif et une livraison rapide pour votre satisfaction.</p>
+        <h5><spring:message code="values.service" /></h5>
+        <p><spring:message code="values.service.description" /></p>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Section Arômes -->
+
 <div class="container aroma-section text-center my-5">
-  <h2>Découvrez nos arômes exclusifs</h2>
-  <p>
-    Des saveurs classiques comme la menthe fraîche et la vanille aux mélanges exotiques comme mangue-passion,
-    nous avons tout pour satisfaire vos envies.
-  </p>
-  <a href="/products" class="btn btn-primary">Voir nos produits</a>
+  <h2><spring:message code="aromas.title" /></h2>
+  <p><spring:message code="aromas.description" /></p>
+  <a href="/products" class="btn btn-primary"><spring:message code="button.products" /></a>
 </div>
 
-<!-- Section Équipe -->
+
 <div class="container team-section">
-  <h2 class="text-center">Rencontrez notre équipe</h2>
+  <h2 class="text-center"><spring:message code="team.title" /></h2>
   <div class="team-row">
     <div class="team-member">
       <img src="<spring:url value='/images/wiwi.jpg'/>" alt="Wiwi">
-      <h5>Wiwi</h5>
-      <p>Fondateur & Directeur Créatif</p>
+      <h5><spring:message code="team.member1.name" /></h5>
+      <p><spring:message code="team.member1.role" /></p>
     </div>
     <div class="team-member">
       <img src="<spring:url value='/images/nico.jpg'/>" alt="Nico">
-      <h5>Nico</h5>
-      <p>Responsable Marketing & Communication</p>
+      <h5><spring:message code="team.member2.name" /></h5>
+      <p><spring:message code="team.member2.role" /></p>
     </div>
     <div class="team-member">
       <img src="<spring:url value='/images/peps.jpg'/>" alt="Peps">
-      <h5>Peps</h5>
-      <p>Responsable Produit & Innovation</p>
+      <h5><spring:message code="team.member3.name" /></h5>
+      <p><spring:message code="team.member3.role" /></p>
     </div>
   </div>
 </div>
 
-<!-- Section Contact -->
+
 <div class="container text-center mt-5">
-  <h2>Contactez-nous</h2>
-  <p>Vous avez une question ou une suggestion ? Nous sommes là pour vous aider !</p>
-  <a href="/contact" class="btn btn-primary">Contactez-nous</a>
+  <h2><spring:message code="contact.title" /></h2>
+  <p><spring:message code="contact.description" /></p>
+  <a href="/contact" class="btn btn-primary"><spring:message code="button.contact" /></a>
 </div>
 
-<!-- Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
