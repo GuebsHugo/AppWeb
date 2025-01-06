@@ -10,22 +10,49 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<div class="container">
-  <h2><spring:message code="catalog.title" /></h2>
-  <div class="row">
-    <!-- Boucle sur les catégories -->
-    <c:forEach var="category" items="${categories}">
-      <div class="col-md-3">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">${category.name}</h5>
-            <a href="/category/${category.id}" class="btn btn-primary"><spring:message code="category.title" /></a>
+  <div class="container">
+    <!-- Titre du catalogue -->
+    <h2><spring:message code="catalog.title" /></h2>
+
+    <!-- Affichage des catégories -->
+    <div class="row">
+      <c:forEach var="category" items="${categories}">
+        <div class="col-md-3">
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">${category.name}</h5>
+              <a href="/firstSpring/catalogue?categoryId=${category.id}" class="btn btn-primary">
+                <spring:message code="category.title" />
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-    </c:forEach>
-  </div>
-</div>
-</body>
-</html>
+      </c:forEach>
+    </div>
 
+    <!-- Affichage des produits si une catégorie est sélectionnée -->
+    <c:if test="${not empty products}">
+      <h3 class="mt-4"><spring:message code="products.title" /></h3>
+      <div class="row">
+        <c:forEach var="product" items="${products}">
+          <div class="col-md-4">
+            <div class="card mb-3">
+              <div class="card-body">
+                <h5 class="card-title">${product.label}</h5>
+                <p class="card-text">${product.description}</p>
+                <p class="card-text">
+                  <strong>Prix :</strong> ${product.price} €<br>
+                  <strong>Stock :</strong> ${product.stock}
+                </p>
+                <a href="/product/${product.id}" class="btn btn-success">
+                  <spring:message code="product.details" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </c:forEach>
+      </div>
+    </c:if>
+  </div>
+  </body>
+</html>
