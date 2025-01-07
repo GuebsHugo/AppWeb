@@ -30,11 +30,12 @@ public class CatalogueController {
         List<Category> categories = categoryDAO.getAllCategories();
         model.addAttribute("categories", categories);
 
-        // Filtrage manuel si une catégorie est sélectionnée
+        // Filtrage manuel si une catégorie est sélectionnée.
         if (categoryId != null) {
             List<Product> allProducts = productDAO.getAllProducts();
             List<Product> products = allProducts.stream().filter(product -> product.getCategory().getId().equals(categoryId)).toList();
             model.addAttribute("products", products);
+            model.addAttribute("categoryId", categoryId);
         }
 
         return "integrated:catalogue"; // Retourne la vue catalogue
