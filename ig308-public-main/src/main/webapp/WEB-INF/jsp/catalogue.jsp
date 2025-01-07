@@ -45,7 +45,7 @@
                   <strong>Stock :</strong> ${product.stock}
                 </p>
                 <a href="/product/${product.id}" class="btn btn-success">
-                  <spring:message code="product.details" />
+                  <spring:message code="product.addCart" />
                 </a>
               </div>
             </div>
