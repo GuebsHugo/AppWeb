@@ -6,6 +6,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
     <link type="text/css" href="<spring:url value='/css/first.css'/>" rel="Stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
@@ -26,7 +27,12 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="<spring:url value='/hello/welcome'/>"><spring:message code="nav.home" /></a>
+        <a class="navbar-brand" href="<spring:url value='/hello/welcome'/>">
+            <img src="<spring:url value='/images/logo.png'/>" alt="Logo" style="height: 40px;"/>
+            <span>Accueil</span>
+        </a>
+
+
         <button
                 class="navbar-toggler"
                 type="button"
@@ -61,9 +67,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="<spring:url value='/profile'/>">${sessionScope.user.username}</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<spring:url value='/cart'/>"><spring:message code="nav.cart" /></a>
-                        </li>
                     </c:otherwise>
                 </c:choose>
 
@@ -81,10 +84,25 @@
                         <img src="${pageContext.request.contextPath}/images/en.png" alt="English" class="flag"/>
                     </a>
                 </li>
+
+                <!-- Icône du panier -->
+                <!-- Icône du panier -->
+                <li class="nav-item">
+                    <a class="nav-link cart-icon" href="<spring:url value='/cart'/>">
+                        <i class="bi bi-cart" style="font-size: 1.5rem;"></i>
+                        <!-- Affichage dynamique du nombre d'articles -->
+                        <span class="badge bg-danger text-white">
+                            <!-- Utilisation de JSTL pour récupérer la taille du panier -->
+                            <c:out value="${sessionScope.cart != null ? sessionScope.cart.size() : 0}" />
+                        </span>
+                    </a>
+                </li>
+
             </ul>
         </div>
     </div>
 </nav>
+
 
 <img src="<spring:url value='/images/images.jpg'/>" />
 
