@@ -52,7 +52,7 @@
                 </li>
 
                 <c:choose>
-                    <c:when test="${empty sessionScope}">
+                    <c:when test="${empty sessionScope.user}">
                         <li class="nav-item">
                             <a class="nav-link" href="<spring:url value='/login'/>"><spring:message code="nav.login" /></a>
                         </li>
