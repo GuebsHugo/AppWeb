@@ -27,7 +27,12 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="<spring:url value='/hello/welcome'/>"><spring:message code="nav.home" /></a>
+        <a class="navbar-brand" href="<spring:url value='/hello/welcome'/>">
+            <img src="<spring:url value='/images/logo.png'/>" alt="Logo" style="height: 40px;"/>
+            <span>Accueil</span>
+        </a>
+
+
         <button
                 class="navbar-toggler"
                 type="button"

@@ -4,6 +4,8 @@ import com.spring.henallux.firstSpringProject.dataAccess.entity.UserEntity;
 import com.spring.henallux.firstSpringProject.dataAccess.repository.UserRepository;
 import com.spring.henallux.firstSpringProject.dataAccess.util.ProviderConverter;
 import com.spring.henallux.firstSpringProject.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,7 +16,8 @@ import java.util.List;
 @Transactional
 public class UserDAO implements UserDataAccess{
 
-
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
     private UserRepository userRepository;
     private ProviderConverter providerConverter;
 
@@ -57,6 +60,9 @@ public class UserDAO implements UserDataAccess{
     @Override
 
     public void saveUser(User user) {
+        String hashedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(hashedPassword);
+
         UserEntity userEntity = providerConverter.userModelToUserEntity(user);
         userRepository.save(userEntity);
     }

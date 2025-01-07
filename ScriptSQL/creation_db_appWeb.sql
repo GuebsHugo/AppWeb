@@ -5,6 +5,12 @@ USE appWeb;
 set @@global.time_zone = '+00:00' ;
 set @@session.time_zone = '+00:00' ;
 
+DROP TABLE IF EXISTS OrderLine;
+DROP TABLE IF EXISTS CustomerOrder;
+DROP TABLE IF EXISTS Product;
+DROP TABLE IF EXISTS Category;
+DROP TABLE IF EXISTS User;
+
 CREATE TABLE User (
     id INT AUTO_INCREMENT PRIMARY KEY,
     last_name VARCHAR(50) NOT NULL,
@@ -12,8 +18,14 @@ CREATE TABLE User (
     email VARCHAR(100) UNIQUE NOT NULL,
     phone VARCHAR(15),
     address TEXT,
-    password VARCHAR(255) NOT NULL
+    password VARCHAR(255) NOT NULL,
+    enabled BOOLEAN NOT NULL DEFAULT TRUE,
+    account_non_expired BOOLEAN NOT NULL DEFAULT TRUE,
+    credentials_non_expired BOOLEAN NOT NULL DEFAULT TRUE,
+    account_non_locked BOOLEAN NOT NULL DEFAULT TRUE,
+    authorities VARCHAR(255)
 );
+
 
 CREATE TABLE Category (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -49,3 +61,4 @@ CREATE TABLE OrderLine (
     FOREIGN KEY (order_id) REFERENCES CustomerOrder(id),
     FOREIGN KEY (product_id) REFERENCES Product(id)
 );
+

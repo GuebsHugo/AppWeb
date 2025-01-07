@@ -21,20 +21,25 @@
         </div>
       </c:if>
 
-      <form action="/firstSpring/login" method="POST"> <!-- Action modifiée ici -->
+      <form:form id="loginForm" method="post" modelAttribute="user_connexion">
         <div class="form-group">
-          <label for="email"><spring:message code="form.identifiant" /></label>
-          <input type="email" class="form-control" id="email" name="email" required>
+          <form:label path="email"><spring:message code="form.identifiant" /></form:label>
+          <form:input path="email" class="form-control" id="email" required="true" />
         </div>
+
         <div class="form-group">
-          <label for="password"><spring:message code="form.password" /></label>
-          <input type="password" class="form-control" id="password" name="password" required>
+          <form:label path="password"><spring:message code="form.password" /></form:label>
+          <form:input path="password" type="password" class="form-control" id="password" required="true" />
         </div>
-        <button type="submit" class="btn btn-primary btn-block"><spring:message code="form.submit" /></button>
-      </form>
+
+        <button type="submit" class="btn btn-primary btn-block">
+          <spring:message code="form.submit" />
+        </button>
+      </form:form>
+
 
       <p class="text-center mt-3">
-        <spring:message code="form.register.question" /><a href="/firstSpring/register"><spring:message code="form.register.cree" /></a>
+        <spring:message code="form.register.question" /><a href="/register"><spring:message code="form.register.cree" /></a>
       </p>
     </div>
   </div>
