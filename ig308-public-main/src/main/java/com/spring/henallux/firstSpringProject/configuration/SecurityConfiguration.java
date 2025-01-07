@@ -16,47 +16,41 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private static final String LOGIN_REQUEST = "/login";
     private static final String[] AUTHORIZED_REQUESTS_ADMIN = new String[]{"/admin"};
     private UserDetailsService userDetailsServiceImpl;
+    private BCryptPasswordEncoder passwordEncoder;
 
     @Autowired
-    public SecurityConfiguration(UserDetailsService userDetailsServiceImplementation) {
+    public SecurityConfiguration(UserDetailsService userDetailsServiceImplementation, BCryptPasswordEncoder passwordEncoder) {
         this.userDetailsServiceImpl = userDetailsServiceImplementation;
-    }
-
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable();
-
         http
                 .authorizeRequests()
-                    .antMatchers(AUTHORIZED_REQUESTS_ADMIN).hasRole("ADMIN")
-                    .antMatchers("/", "/home", "/public/**", "/register", "/about", "/catalogue", "/hello/welcome", "/processLogin", "/cart", "/cart/add", "/remove", "/clear", "/update", "/add").permitAll() // Ces pages sont accessibles sans authentification
-                    .anyRequest().authenticated()
+                .antMatchers(AUTHORIZED_REQUESTS_ADMIN).hasRole("ADMIN")
+                .antMatchers("/", "/home", "/public/**", "/register", "/about", "/catalogue", "/hello/welcome", "/processLogin", "/cart").permitAll()
+                .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                    .successHandler(new SavedRequestAwareAuthenticationSuccessHandler())
-                    .loginPage(LOGIN_REQUEST)
-                    .usernameParameter("email")  // Utilise "email" au lieu de "username"
-                    .passwordParameter("password")
-                    .failureUrl("/login")  // URL de redirection en cas d'échec de l'authentification
-                    .permitAll()
-                    .defaultSuccessUrl("/hello/welcome", true)
+                .loginPage(LOGIN_REQUEST)
+                .usernameParameter("email")  // Utilise "email" comme nom d'utilisateur
+                .passwordParameter("password")
+                .failureUrl("/login?error=true")  // Affiche une erreur si l'authentification échoue
+                .permitAll()
+                .defaultSuccessUrl("/hello/welcome", true)
                 .and()
                 .logout()
-                    .logoutUrl("/logout")
-                    .logoutSuccessUrl("/hello/welcome")
-                    .invalidateHttpSession(true) // supprime a session
-                    .clearAuthentication(true)
-                    .permitAll();
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/hello/welcome")
+                .invalidateHttpSession(true)
+                .clearAuthentication(true)
+                .permitAll();
     }
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsServiceImpl).passwordEncoder(new BCryptPasswordEncoder());
+        auth.userDetailsService(userDetailsServiceImpl).passwordEncoder(passwordEncoder);
     }
 
 }

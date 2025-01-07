@@ -26,27 +26,6 @@ public class UserDAO implements UserDataAccess{
         this.providerConverter = providerConverter;
     }
 
-    @Override
-    public ArrayList<User> getAllUsers() {
-        List<UserEntity> userEntities = userRepository.findAll();
-
-        ArrayList<User> users = new ArrayList<>();
-
-        for (UserEntity entity : userEntities) {
-            User user = new User(
-                    entity.getId(),
-                    entity.getLastName(),
-                    entity.getFirstName(),
-                    entity.getEmail(),
-                    entity.getPhone(),
-                    entity.getAddress(),
-                    entity.getPassword()
-            );
-            users.add(user);
-        }
-
-        return users;
-    }
 
     @Override
     public User getUserByEmail(String email) {
@@ -64,6 +43,12 @@ public class UserDAO implements UserDataAccess{
         user.setPassword(hashedPassword);
 
         UserEntity userEntity = providerConverter.userModelToUserEntity(user);
+
+        userEntity.setAuthorities("ROLE_USER");
+        userEntity.setEnabled(true);
+        userEntity.setAccountNonExpired(true);
+        userEntity.setCredentialsNonExpired(true);
+        userEntity.setAccountNonLocked(true);
         userRepository.save(userEntity);
     }
 

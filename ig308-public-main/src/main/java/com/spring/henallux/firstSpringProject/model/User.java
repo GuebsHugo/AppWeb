@@ -39,7 +39,6 @@ public class User implements UserDetails {
     private String password;
 
     private String authorities;
-
     private boolean enabled;
     private boolean accountNonExpired;
     private boolean credentialsNonExpired;
@@ -48,7 +47,7 @@ public class User implements UserDetails {
 
     public User() {}
 
-    public User(Integer id, String lastName, String firstName, String email, String phone, String address, String password) {
+    public User(Integer id, String lastName, String firstName, String email, String phone, String address, String password, String authorities) {
         this.id = id;
         this.lastName = lastName;
         this.firstName = firstName;
@@ -56,9 +55,10 @@ public class User implements UserDetails {
         this.phone = phone;
         this.address = address;
         this.password = password;
+        this.authorities = authorities;
     }
 
-    @Override
+
     public Collection<GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
         if (authorities != null && !authorities.isEmpty()) {
