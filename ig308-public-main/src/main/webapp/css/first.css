@@ -31,3 +31,24 @@
 .navbar .right {
     float: right;
 }
+
+.cart-icon {
+    position: relative;
+    font-weight: bold;
+    color: white;
+    transition: transform 0.2s ease-in-out;
+}
+
+.cart-icon:hover {
+    transform: scale(1.2); /* Met en évidence au survol */
+    text-decoration: none;
+    color: white;
+}
+
+.cart-icon .badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    font-size: 0.8rem;
+    padding: 0.4em 0.6em;
+}
