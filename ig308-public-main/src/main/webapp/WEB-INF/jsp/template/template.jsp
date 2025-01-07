@@ -8,10 +8,8 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-
     <link type="text/css" href="<spring:url value='/css/first.css'/>" rel="Stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-
     <title><spring:message code="page.title.template" /></title>
 
     <spring:url var="localeFr" value="">
@@ -21,6 +19,23 @@
     <spring:url var="localeEn" value="">
         <spring:param name="locale" value="en" />
     </spring:url>
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .content {
+            flex: 1;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+    </style>
 
 </head>
 
@@ -33,16 +48,7 @@
             <span>Accueil</span>
         </a>
 
-
-        <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNav"
-                aria-controls="navbarNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-        >
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -83,30 +89,46 @@
                     </a>
                 </li>
 
-                <!-- Icône du panier -->
-                <!-- Icône du panier -->
                 <li class="nav-item">
                     <a class="nav-link cart-icon" href="<spring:url value='/cart'/>">
                         <i class="bi bi-cart" style="font-size: 1.5rem;"></i>
-                        <!-- Affichage dynamique du nombre d'articles -->
                         <span class="badge bg-danger text-white">
-                            <!-- Utilisation de JSTL pour récupérer la taille du panier -->
                             <c:out value="${sessionScope.cart != null ? sessionScope.cart.size() : 0}" />
                         </span>
                     </a>
                 </li>
-
             </ul>
         </div>
     </div>
 </nav>
 
-
-<img src="<spring:url value='/images/images.jpg'/>" />
-
-<div>
-    <tiles:insertAttribute name="main-content" />
+<div class="content">
+    <div class="container mt-4">
+        <div class="text-center">
+            <img src="<spring:url value='/images/images.jpg'/>" class="img-fluid" alt="Image principale" />
+        </div>
+        <div class="text-center mt-4">
+            <tiles:insertAttribute name="main-content" />
+        </div>
+    </div>
 </div>
+
+<footer>
+    <div class="container">
+        <p class="mb-0"><spring:message code="footer.copyright" /></p>
+        <p class="mb-0">
+            <spring:message code="footer.connected" />
+            <c:choose>
+                <c:when test="${pageContext.request.userPrincipal != null}">
+                    <span>${pageContext.request.userPrincipal.name}</span>
+                </c:when>
+                <c:otherwise>
+                    <span><spring:message code="footer.notconnected" /></span>
+                </c:otherwise>
+            </c:choose>
+        </p>
+    </div>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 

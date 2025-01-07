@@ -18,8 +18,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private UserDetailsService userDetailsServiceImpl;
     private BCryptPasswordEncoder passwordEncoder;
 
-    @Autowired
-    private CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler; // Injecter le handler
 
     @Autowired
     public SecurityConfiguration(UserDetailsService userDetailsServiceImplementation, BCryptPasswordEncoder passwordEncoder) {
