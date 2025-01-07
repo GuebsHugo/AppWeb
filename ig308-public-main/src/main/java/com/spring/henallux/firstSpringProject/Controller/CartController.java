@@ -23,7 +23,7 @@ public class CartController {
 
     @GetMapping
     public String viewCart(HttpSession session, Model model) {
-        // Récupérer le panier depuis la session
+        // Récupérer le panier depuis la session.
         List<CartItem> cart = (List<CartItem>) session.getAttribute("cart");
         if (cart == null) {
             cart = new ArrayList<>();

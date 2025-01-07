@@ -37,6 +37,7 @@ public class ProductDAO implements ProductDataAccess{
         return products;
     }
 
+
     public Product getProductById(Integer productId) {
         ProductEntity productEntity = productRepository.findById(productId)
                 .orElseThrow(() -> new RuntimeException("Produit non trouvé"));
