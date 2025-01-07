@@ -24,8 +24,6 @@ public class UserDetailsServiceImplementation implements UserDetailsService {
     public User loadUserByUsername(String email) throws UsernameNotFoundException {
         // Récupérer l'utilisateur
         User user = userDataAccess.getUserByEmail(email);
-        System.out.println(user);
-
         if (user == null) {
             throw new UsernameNotFoundException("Utilisateur non trouvé");
         }

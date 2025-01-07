@@ -52,7 +52,7 @@
                 </li>
 
                 <c:choose>
-                    <c:when test="${empty sessionScope.user}">
+                    <c:when test="${empty sessionScope}">
                         <li class="nav-item">
                             <a class="nav-link" href="<spring:url value='/login'/>"><spring:message code="nav.login" /></a>
                         </li>
@@ -64,9 +64,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="<spring:url value='/logout'/>"><spring:message code="nav.logout" /></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<spring:url value='/profile'/>">${sessionScope.user.username}</a>
-                        </li>
                     </c:otherwise>
                 </c:choose>
 
@@ -76,12 +73,12 @@
 
                 <li class="nav-item">
                     <a class="nav-link" href="?locale=fr">
-                        <img src="../../images/fr.png" alt="Français" class="flag"/>
+                        <img src=<spring:url value='/images/fr.png'/> alt="Français" class="flag"/>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="?locale=en">
-                        <img src="../../images/en.png" alt="English" class="flag"/>
+                        <img src=<spring:url value='/images/en.png'/> alt="English" class="flag"/>
                     </a>
                 </li>
 
