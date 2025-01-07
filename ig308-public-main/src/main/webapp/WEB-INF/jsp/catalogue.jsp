@@ -44,9 +44,16 @@
                   <strong>Prix :</strong> ${product.price} €<br>
                   <strong>Stock :</strong> ${product.stock}
                 </p>
-                <a href="/product/${product.id}" class="btn btn-success">
-                  <spring:message code="product.addCart" />
-                </a>
+               <form method="post" action="/firstSpring/cart/add">
+                  <input type="hidden" name="productId" value="${product.id}">
+                  <c:if test="${not empty categoryId}">
+                    <input type="hidden" name="categoryId" value="${categoryId}">
+                  </c:if>
+                  <button type="submit" class="btn btn-success">
+                    <spring:message code="product.addCart" />
+                  </button>
+                </form>
+
               </div>
             </div>
           </div>
