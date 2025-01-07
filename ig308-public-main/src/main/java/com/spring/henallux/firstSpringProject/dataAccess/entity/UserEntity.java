@@ -30,8 +30,20 @@ public class UserEntity {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<CustomerOrderEntity> orders;
+    @Column(name = "authorities")
+    private String authorities;
+
+    @Column(name = "enabled", nullable = false)
+    private boolean enabled;  // L'utilisateur est-il activé ?
+
+    @Column(name = "account_non_expired", nullable = false)
+    private boolean accountNonExpired;  // Le compte est-il expiré ?
+
+    @Column(name = "credentials_non_expired", nullable = false)
+    private boolean credentialsNonExpired;  // Les identifiants sont-ils expirés ?
+
+    @Column(name = "account_non_locked", nullable = false)
+    private boolean accountNonLocked;  // Le compte est-il verrouillé ?
 
     public UserEntity() {}
 
@@ -45,6 +57,7 @@ public class UserEntity {
     }
 
     // Getters and Setters
+
     public Integer getId() {
         return id;
     }
@@ -101,11 +114,43 @@ public class UserEntity {
         this.password = password;
     }
 
-    public Set<CustomerOrderEntity> getOrders() {
-        return orders;
+    public String getAuthorities() {
+        return authorities;
     }
 
-    public void setOrders(Set<CustomerOrderEntity> orders) {
-        this.orders = orders;
+    public void setAuthorities(String authorities) {
+        this.authorities = authorities;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public boolean isAccountNonExpired() {
+        return accountNonExpired;
+    }
+
+    public void setAccountNonExpired(boolean accountNonExpired) {
+        this.accountNonExpired = accountNonExpired;
+    }
+
+    public boolean isCredentialsNonExpired() {
+        return credentialsNonExpired;
+    }
+
+    public void setCredentialsNonExpired(boolean credentialsNonExpired) {
+        this.credentialsNonExpired = credentialsNonExpired;
+    }
+
+    public boolean isAccountNonLocked() {
+        return accountNonLocked;
+    }
+
+    public void setAccountNonLocked(boolean accountNonLocked) {
+        this.accountNonLocked = accountNonLocked;
     }
 }

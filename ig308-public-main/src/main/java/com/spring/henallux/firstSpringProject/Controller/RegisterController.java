@@ -39,7 +39,6 @@ public class RegisterController {
         if (bindingResult.hasErrors()) {
             return "integrated:register";
         }
-        System.out.println(user);
         userDataAccess.saveUser(user);
         if(user.getFirstName()!= null){
             session.setAttribute("user", user);

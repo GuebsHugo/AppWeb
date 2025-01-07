@@ -1,10 +1,19 @@
 package com.spring.henallux.firstSpringProject.model;
 
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.springframework.security.core.GrantedAuthority;
 
-public class User {
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
+public class User implements UserDetails {
 
     private Integer id;  // Ajout de l'ID
 
@@ -29,7 +38,13 @@ public class User {
     @Size(min = 8, max = 255, message = "Password must be between 8 and 255 characters")
     private String password;
 
-    // Constructeurs, getters, et setters
+    private String authorities;
+
+    private boolean enabled;
+    private boolean accountNonExpired;
+    private boolean credentialsNonExpired;
+    private boolean accountNonLocked;
+
 
     public User() {}
 
@@ -41,6 +56,59 @@ public class User {
         this.phone = phone;
         this.address = address;
         this.password = password;
+    }
+
+    @Override
+    public Collection<GrantedAuthority> getAuthorities() {
+        List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
+        if (authorities != null && !authorities.isEmpty()) {
+            String[] authoritiesAsArray = authorities.split(",");
+
+            for (String authority : authoritiesAsArray) {
+                if (authority != null && !authority.isEmpty()) {
+                    grantedAuthorities.add(new SimpleGrantedAuthority(authority));
+                }
+            }
+        }
+        return grantedAuthorities;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+    @Override
+
+    public boolean isAccountNonExpired(){
+        return accountNonExpired;
+    }
+    @Override
+
+    public boolean isCredentialsNonExpired(){
+        return credentialsNonExpired;
+    }
+    @Override
+
+    public boolean isAccountNonLocked() {
+        return accountNonLocked;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setAuthorities(String authorities) {
+        this.authorities = authorities;
+    }
+    public void setAccountNonLocked(Boolean accountNonLocked) {
+        this.accountNonLocked = accountNonLocked;
+    }
+    public void setAccountNonExpired(Boolean accountNonExpired) {
+        this.accountNonExpired = accountNonExpired;
+    }
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+    public void setCredentialsNonExpired(Boolean credentialsNonExpired) {
+        this.credentialsNonExpired = credentialsNonExpired;
     }
 
     public Integer getId() {
@@ -95,24 +163,22 @@ public class User {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    @Override
+    public String getUsername() {
+        return email;
     }
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
                 ", address='" + address + '\'' +
                 ", password='" + password + '\'' +
+                ", authorities='" + getAuthorities() + '\'' +
                 '}';
-    }
-
-    public String getUsername() {
-        return firstName;
     }
 }
