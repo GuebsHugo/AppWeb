@@ -15,10 +15,8 @@
     <div class="col-md-6">
       <h2 class="text-center"><spring:message code="page.title.login" /></h2>
 
-      <c:if test="${not empty error}">
-        <div class="alert alert-danger" role="alert">
-          <spring:message code="error.generic" />
-        </div>
+      <c:if test="${not empty param.error}">
+        <p style="color: red;">Invalid username or password. Please try again.</p>
       </c:if>
 
       <form:form id="loginForm" method="post" modelAttribute="user_connexion">
