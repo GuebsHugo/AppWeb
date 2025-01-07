@@ -61,11 +61,13 @@
                         <li class="nav-item">
                             <a class="nav-link" href="<spring:url value='/profile'/>">${sessionScope.user.username}</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<spring:url value='/cart'/>"><spring:message code="nav.cart" /></a>
-                        </li>
+
                     </c:otherwise>
                 </c:choose>
+
+                <li class="nav-item">
+                            <a class="nav-link" href="<spring:url value='/cart'/>"><spring:message code="nav.cart" /></a>
+                        </li>
 
                 <li class="nav-item">
                     <a class="nav-link" href="<spring:url value='/about'/>"><spring:message code="nav.about" /></a>
