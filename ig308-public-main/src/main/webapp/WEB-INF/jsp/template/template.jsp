@@ -76,12 +76,12 @@
 
                 <li class="nav-item">
                     <a class="nav-link" href="?locale=fr">
-                        <img src="${pageContext.request.contextPath}/images/fr.png" alt="Français" class="flag"/>
+                        <img src="../../images/fr.png" alt="Français" class="flag"/>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="?locale=en">
-                        <img src="${pageContext.request.contextPath}/images/en.png" alt="English" class="flag"/>
+                        <img src="../../images/en.png" alt="English" class="flag"/>
                     </a>
                 </li>
 

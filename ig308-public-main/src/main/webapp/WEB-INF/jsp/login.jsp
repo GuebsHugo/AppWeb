@@ -39,7 +39,7 @@
 
 
       <p class="text-center mt-3">
-        <spring:message code="form.register.question" /><a href="/register"><spring:message code="form.register.cree" /></a>
+        <spring:message code="form.register.question" /><a href="/firstSpring/register"><spring:message code="form.register.cree" /></a>
       </p>
     </div>
   </div>

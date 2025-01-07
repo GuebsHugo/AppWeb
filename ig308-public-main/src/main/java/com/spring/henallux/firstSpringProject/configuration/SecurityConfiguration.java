@@ -29,10 +29,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable();
+
         http
                 .authorizeRequests()
                     .antMatchers(AUTHORIZED_REQUESTS_ADMIN).hasRole("ADMIN")
-                    .antMatchers("/", "/home", "/public/**", "/register", "/about", "/catalogue", "/hello/welcome", "/processLogin", "/cart").permitAll() // Ces pages sont accessibles sans authentification
+                    .antMatchers("/", "/home", "/public/**", "/register", "/about", "/catalogue", "/hello/welcome", "/processLogin", "/cart", "/cart/add", "/remove", "/clear", "/update", "/add").permitAll() // Ces pages sont accessibles sans authentification
                     .anyRequest().authenticated()
                 .and()
                 .formLogin()
