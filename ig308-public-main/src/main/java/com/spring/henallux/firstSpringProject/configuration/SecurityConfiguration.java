@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -40,6 +41,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                     .passwordParameter("password")
                     .failureUrl("/login?error=true")  // Affiche une erreur si l'authentification échoue
                     .permitAll()
+                    .successHandler(new SavedRequestAwareAuthenticationSuccessHandler())
                     .defaultSuccessUrl("/hello/welcome", true)
                 .and()
                     .logout()

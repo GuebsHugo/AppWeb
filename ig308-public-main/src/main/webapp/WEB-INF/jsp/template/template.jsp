@@ -24,17 +24,26 @@
         body {
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
+            min-height: 100vh; /* Assurez-vous que le body occupe toute la hauteur de la fenêtre */
         }
+
         .content {
-            flex: 1;
+            flex: 1; /* Permet au contenu de remplir l'espace restant */
         }
+
         footer {
             background-color: #343a40;
             color: white;
             padding: 10px 0;
             text-align: center;
+            margin-top: auto; /* Garantit que le footer reste en bas même si le contenu est petit */
         }
+        .user {
+            width: 35px; /* Définissez la largeur de l'image */
+            height: 35px; /* Définissez la hauteur de l'image */
+            object-fit: cover; /* Garantit que l'image est bien ajustée sans être déformée */
+        }
+
     </style>
 
 </head>
@@ -88,6 +97,16 @@
                         <img src=<spring:url value='/images/en.png'/> alt="English" class="flag"/>
                     </a>
                 </li>
+
+                <c:choose>
+                    <c:when test="${not empty pageContext.request.userPrincipal.principal.username}">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/firstSpring/profile">
+                                <img src="<spring:url value='/images/user.png'/>" alt="user" class="user"/>
+                            </a>
+                        </li>
+                    </c:when>
+                </c:choose>
 
                 <li class="nav-item">
                     <a class="nav-link cart-icon" href="<spring:url value='/cart'/>">

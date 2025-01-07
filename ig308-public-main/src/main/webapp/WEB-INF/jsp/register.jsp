@@ -37,13 +37,13 @@
 
     <div class="form-group">
       <label for="phone"><spring:message code="form.phone" /></label>
-      <form:input path="phone" class="form-control" id="phone" required="true"/>
+      <form:input path="phone" class="form-control" id="phone"/>
       <form:errors path="phone" class="error text-danger" />
     </div>
 
     <div class="form-group">
       <label for="address"><spring:message code="form.address" /></label>
-      <form:textarea path="address" class="form-control" id="address" required="true"></form:textarea>
+      <form:textarea path="address" class="form-control" id="address"></form:textarea>
       <form:errors path="address" class="error text-danger" />
     </div>
 
