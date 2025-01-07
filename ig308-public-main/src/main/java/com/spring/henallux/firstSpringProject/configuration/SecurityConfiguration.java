@@ -14,8 +14,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private static final String LOGIN_REQUEST = "/login";
     private static final String[] AUTHORIZED_REQUESTS_ADMIN = new String[]{"/admin"};
+
     private UserDetailsService userDetailsServiceImpl;
     private BCryptPasswordEncoder passwordEncoder;
+
+    @Autowired
+    private CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler; // Injecter le handler
 
     @Autowired
     public SecurityConfiguration(UserDetailsService userDetailsServiceImplementation, BCryptPasswordEncoder passwordEncoder) {
@@ -27,25 +31,24 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers(AUTHORIZED_REQUESTS_ADMIN).hasRole("ADMIN")
-                .antMatchers("/", "/home", "/public/**", "/register", "/about", "/catalogue", "/hello/welcome", "/processLogin", "/cart", "/cart/add", "/remove", "/clear", "/update", "/add").permitAll()
-                .antMatchers("/images/**", "/css/**", "/js/**").permitAll()
-                .anyRequest().authenticated()
+                    .antMatchers(AUTHORIZED_REQUESTS_ADMIN).hasRole("ADMIN")
+                    .antMatchers("/", "/home", "/public/**", "/register", "/about", "/catalogue", "/hello/welcome", "/processLogin", "/cart", "/cart/add", "/remove", "/clear", "/update", "/add").permitAll()
+                    .antMatchers("/images/**", "/css/**", "/js/**").permitAll()
+                    .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage(LOGIN_REQUEST)
-                .usernameParameter("email")  // Utilise "email" comme nom d'utilisateur
-                .passwordParameter("password")
-                .failureUrl("/login?error=true")  // Affiche une erreur si l'authentification échoue
-                .permitAll()
-                .successHandler(new CustomAuthenticationSuccessHandler())  // Ajouter votre handler personnalisé ici
-                .defaultSuccessUrl("/hello/welcome", true)
+                    .loginPage(LOGIN_REQUEST)
+                    .usernameParameter("email")  // Utiliser "email" comme nom d'utilisateur
+                    .passwordParameter("password")
+                    .failureUrl("/login?error=true")  // Affiche une erreur si l'authentification échoue
+                    .permitAll()
+                    .defaultSuccessUrl("/hello/welcome", true)
                 .and()
-                .logout()
-                .logoutUrl("/logout")
-                .logoutSuccessUrl("/hello/welcome")
-                .invalidateHttpSession(true)
-                .clearAuthentication(true)
+                    .logout()
+                    .logoutUrl("/logout")
+                    .logoutSuccessUrl("/hello/welcome")
+                    .invalidateHttpSession(true)
+                    .clearAuthentication(true)
                 .permitAll();
     }
 
@@ -53,5 +56,4 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsServiceImpl).passwordEncoder(passwordEncoder);
     }
-
 }

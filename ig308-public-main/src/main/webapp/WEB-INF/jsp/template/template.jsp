@@ -2,6 +2,7 @@
 <%@ include file="../include/importTags.jsp" %>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <html>
 <head>
@@ -52,7 +53,7 @@
                 </li>
 
                 <c:choose>
-                    <c:when test="${empty sessionScope.user}">
+                    <c:when test="${empty pageContext.request.userPrincipal.principal.username}">
                         <li class="nav-item">
                             <a class="nav-link" href="<spring:url value='/login'/>"><spring:message code="nav.login" /></a>
                         </li>

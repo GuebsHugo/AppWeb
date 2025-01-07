@@ -14,9 +14,7 @@ public class WelcomeController {
     public WelcomeController() {}
 
     @RequestMapping(value = "/welcome")
-    public String showForm(HttpSession session) {
-        User user = (User) session.getAttribute("user");
-
+    public String showForm() {
         return "integrated:welcome";
     }
 }
