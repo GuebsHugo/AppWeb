@@ -32,7 +32,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                     .antMatchers(AUTHORIZED_REQUESTS_ADMIN).hasRole("ADMIN")
-                    .antMatchers("/", "/home", "/public/**", "/register", "/about", "/catalogue", "/hello/welcome", "/processLogin").permitAll() // Ces pages sont accessibles sans authentification
+                    .antMatchers("/", "/home", "/public/**", "/register", "/about", "/catalogue", "/hello/welcome", "/processLogin", "/cart").permitAll() // Ces pages sont accessibles sans authentification
                     .anyRequest().authenticated()
                 .and()
                 .formLogin()
