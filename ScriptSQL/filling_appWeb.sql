@@ -6,22 +6,25 @@ VALUES
 ('Johnson', 'Emily', 'emily.johnson@example.com', '4567890123', '101 Pine St, City D', '$2a$10$NaN9tzMZnKgV9o4UgZOlQxa9Xh1MLXeqIK26FlSEKkInHZOn6v6zq', 'ROLE_USER,ROLE_ADMIN'),
 ('Miller', 'Michael', 'michael.miller@example.com', '5678901234', '202 Maple St, City E', '$2a$10$JnbkbTh3uGlfV79jL9lgC7q9x4bfr.QptqlY0z6lvhwXEdjqYBoNW', 'ROLE_USER');
 
-
 INSERT INTO Category (name, description)
 VALUES
-('Electronics', 'Devices and gadgets'),
-('Clothing', 'Apparel and accessories'),
-('Books', 'Books and magazines'),
-('Home', 'Furniture and home decor'),
-('Toys', 'Children’s toys and games');
+('Vapes', 'Cigarette Electronique'),
+('Gouts', 'Aromes du gout de la vape'),
+('Accessoires', 'Accessoires pour vapes');
 
 INSERT INTO Product (label, description, price, stock, category_id)
 VALUES
-('Smartphone', 'Latest model smartphone', 699.99, 50, 1),
-('T-Shirt', 'Cotton T-shirt with print', 19.99, 200, 2),
-('Novel', 'Best-selling fiction novel', 14.99, 100, 3),
-('Sofa', 'Comfortable living room sofa', 399.99, 20, 4),
-('Action Figure', 'Collectible action figure', 29.99, 150, 5);
+('GEEKVAPE S100 Aegis Solo', '100W BOX MOD Vape with Z Subohm 2021 Tank 5.5ml Z Coil Vaporizer Electronic Cigarette', 149.99, 14, 1),
+('XROS 3 Mini Kit | Original Vaporesso XROS 3 Mini', 'Kit Built in 1000mAh Battery Vape with 2ml XROS Pod Cartridge MTL to RDL Electronic Cigarette Vaporizer No Nicotine, Compact, Rose', 18.80, 88, 1),
+('VAPTIO Tyro Nano Kit', 'Cigarette électronique 900mAh 30W Kit de démarrage Vape Pen tout-en-un, Sans e liquide sans nicotine (Gris argent)', 13.99, 203, 1),
+('l''Effarant', 'CRAZY LABZ by Belgi''Ohm - l''Effarant- 50ml Tout le savoir-faire de Crazy Labz by Belgi''Ohm, conforme à la nouvelle TPD BELGE 2023 Saveur: fruits rouges, myrtille, bonbon, Frais', 19.99, 156, 2),
+('l''Urluberlu', 'CRAZY LABZ by Belgi''Ohm - l''Urluberlu- 50ml Tout le savoir-faire de Crazy Labz by Belgi''Ohm, conforme à la nouvelle TPD BELGE 2023 Saveur: fraise, mangue, grenade, Frais', 19.99, 99, 2),
+('l''Ahurissant', 'CRAZY LABZ by Belgi''Ohm - l''Ahurissant- 50ml Tout le savoir-faire de Crazy Labz by Belgi''Ohm, conforme à la nouvelle TPD BELGE 2023 Saveur: champagne, raisin, Frais', 19.99, 150, 2),
+('la Divagation', 'CRAZY LABZ by Belgi''Ohm - la Divagation- 50ml Tout le savoir-faire de Crazy Labz by Belgi''Ohm, conforme à la nouvelle TPD BELGE 2023 Saveur: fruit du serpent-mûre noire-cassis-myrtille-Frais', 19.99, 82, 2),
+('Puffs +9000', 'Vape cigarette électronique Led RandM Tornado sans nicotine', 13.50, 34, 1),
+('Rechargeable Lithium Battery', 'Battery 3.6V 18650 VTC6 3000mAh', 30.50, 34, 3),
+('IMREN 18650 Rechargeable Battery Charger', 'Quick Battery Charger for 3.7V 18650 14500 14650 17500 18350 18650 18700 20700 21700 22650 26650, 1.2V Ni-MH/Ni-MH/1.2 V Ni-Cd AA Battery AAA C (4 bays)', 15.50, 4, 3),
+('Le Booster Belge VDLV', 'e-liquide pour cigarette électronique Recharges d''eliquide étiquetées selon les dispositions de l''article 48 du règlement n°1272/2008 Danger : respecter les précautions d''emploi Supérieur à 16,6 mg/ml : H301. Toxique en cas d''ingestion (catégorie 3)', 2.50, 26, 3);
 
 INSERT INTO CustomerOrder (user_id, total, status)
 VALUES
@@ -33,8 +36,8 @@ VALUES
 
 INSERT INTO OrderLine (order_id, product_id, quantity, unit_price)
 VALUES
-(1, 1, 1, 699.99),  -- John Smith a acheté un smartphone
-(2, 2, 1, 19.99),  -- Jane Doe a commandé un T-shirt
-(3, 3, 1, 14.99),  -- Charlie Brown a acheté un livre
-(4, 4, 1, 399.99), -- Emily Johnson a acheté un sofa
-(5, 5, 1, 29.99);  -- Michael Miller a commandé une figurine
+(1, 6, 2, 19.99),
+(2, 7, 1, 19.99),
+(3, 8, 1, 19.99),
+(4, 9, 1, 13.50),
+(5, 10, 1, 30.50);
