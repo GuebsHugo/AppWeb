@@ -37,7 +37,7 @@
               <td>${item.product.label}</td>
               <td>${item.product.price} €</td>
               <td>
-                <form method="post" action="/cart/update">
+                <form method="post" action="/firstSpring/cart/update">
                   <input type="hidden" name="productId" value="${item.product.id}">
                   <input type="number" name="quantity" value="${item.quantity}" min="1" class="form-control" style="width: 80px; display: inline;">
                   <button type="submit" class="btn btn-sm btn-success">Mettre à jour</button>
@@ -45,7 +45,7 @@
               </td>
               <td>${item.product.price * item.quantity} €</td>
               <td>
-                <form method="post" action="/cart/remove">
+                <form method="post" action="/firstSpring/cart/remove">
                   <input type="hidden" name="productId" value="${item.product.id}">
                   <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>
                 </form>
@@ -58,10 +58,10 @@
       <!-- Résumé du panier -->
       <div class="text-right">
         <h3>Total Général : ${total} €</h3>
-        <form method="post" action="/cart/checkout">
+        <form method="post" action="/firstSpring/cart/checkout">
           <button type="submit" class="btn btn-success">Passer à la Caisse</button>
         </form>
-        <form method="post" action="/cart/clear">
+        <form method="post" action="/firstSpring/cart/clear">
           <button type="submit" class="btn btn-danger">Vider le Panier</button>
         </form>
       </div>

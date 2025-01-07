@@ -30,7 +30,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
                 .authorizeRequests()
                     .antMatchers(AUTHORIZED_REQUESTS_ADMIN).hasRole("ADMIN")
-                    .antMatchers("/", "/home", "/public/**", "/register", "/about", "/catalogue", "/hello/welcome", "/processLogin", "/cart", "/cart/add", "/remove", "/clear", "/update", "/add").permitAll()
+                    .antMatchers("/", "/home", "/public/**", "/register", "/about", "/catalogue", "/hello/welcome", "/processLogin", "/cart", "/cart/add", "/remove", "/clear", "/update", "/cart/remove", "/cart/update", "/cart/checkout", "/cart/clear").permitAll()
                     .antMatchers("/images/**", "/css/**", "/js/**").permitAll()
                     .anyRequest().authenticated()
                 .and()
